@@ -1,0 +1,93 @@
+baseURL = "https://yourusername.github.io/sf-ohana/"
+languageCode = "en-us"
+title = "SF Ohana"
+theme = "sf-ohana-theme"
+paginate = 10
+
+# Enable Git info for last modified dates
+# Note: Set to true after initializing Git repository
+enableGitInfo = true
+
+# Enable syntax highlighting
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
+[params]
+  description = "Salesforce Knowledge Base - Your daily technical documentation hub"
+  author = "SF Ohana Team"
+  searchEnabled = true
+
+  # GitHub repository for edit links
+  githubRepo = "https://github.com/yourusername/sf-ohana"
+
+  # Topics configuration
+  [[params.topics]]
+    name = "Apex"
+    url = "/apex/"
+    icon = "code"
+    description = "Salesforce Apex Programming"
+
+  [[params.topics]]
+    name = "LWC"
+    url = "/lwc/"
+    icon = "component"
+    description = "Lightning Web Components"
+
+  [[params.topics]]
+    name = "Certificates"
+    url = "/certificates/"
+    icon = "certificate"
+    description = "Salesforce Certifications"
+
+  [[params.topics]]
+    name = "Platform Events"
+    url = "/platform-events/"
+    icon = "event"
+    description = "Event-Driven Architecture"
+
+  [[params.topics]]
+    name = "Integrations"
+    url = "/integrations/"
+    icon = "integration"
+    description = "System Integrations"
+
+  [[params.topics]]
+    name = "Agentforce"
+    url = "/agentforce/"
+    icon = "agent"
+    description = "Salesforce Agentforce"
+
+  [[params.topics]]
+    name = "Data Cloud"
+    url = "/data-cloud/"
+    icon = "cloud"
+    description = "Salesforce Data Cloud"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Search"
+    url = "/search/"
+    weight = 2
+
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 3
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    lineNos = true
+    lineNumbersInTable = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

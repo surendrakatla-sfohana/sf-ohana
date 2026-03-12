@@ -1,0 +1,39 @@
+<header class="site-header">
+    <div class="header-container">
+        <div class="header-left">
+            <a href="{{ .Site.BaseURL }}" class="site-logo">
+                <span class="logo-text">SF Ohana</span>
+            </a>
+        </div>
+
+        <nav class="header-nav">
+            <ul class="nav-list">
+                {{ range .Site.Menus.main }}
+                <li class="nav-item">
+                    <a href="{{ .URL }}" class="nav-link {{ if $.IsMenuCurrent "main" . }}active{{ end }}">
+                        {{ .Name }}
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-nav">
+        <ul class="mobile-nav-list">
+            {{ range .Site.Menus.main }}
+            <li class="mobile-nav-item">
+                <a href="{{ .URL }}" class="mobile-nav-link">{{ .Name }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </nav>
+</header>

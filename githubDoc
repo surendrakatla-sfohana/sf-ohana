@@ -1,0 +1,70 @@
+GitHub Pages Deployment
+
+Provide full instructions to deploy:
+
+Create GitHub repo
+
+Install Hugo
+
+Initialize project
+
+Add theme
+
+Configure baseURL
+
+Push to GitHub
+
+Enable GitHub Pages
+
+Also provide:
+
+Example config.toml.
+
+Daily Content Workflow
+
+The system should allow me to add content easily.
+
+Example workflow:
+
+hugo new apex/bulk-processing.md
+
+Then push to GitHub and auto deploy.
+
+Deliverables
+
+Generate:
+
+1️⃣ Full folder structure
+2️⃣ Hugo theme code
+3️⃣ Layout templates
+4️⃣ CSS styling
+5️⃣ Example markdown files
+6️⃣ config.toml
+7️⃣ GitHub deployment guide
+
+Everything should work immediately after cloning the repository.
+
+Important
+
+Follow these design principles:
+
+• Minimal
+• Fast
+• Maintainable
+• Documentation focused
+• Developer friendly
+
+Do NOT generate only explanations.
+
+Generate actual code for every file.
+
+If possible also suggest improvements like:
+
+• tagging system
+• related articles
+• dark mode
+• versioning
+
+End Goal
+
+A professional Salesforce documentation website called SF Ohana that I can maintain daily using Hugo + GitHub Pages.

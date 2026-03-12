@@ -1,0 +1,102 @@
+{{ define "main" }}
+<div class="search-page">
+    <div class="container">
+        <h1 class="search-title">Search Documentation</h1>
+
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="Search for topics, keywords, or code...">
+            <button id="search-button" class="search-button">Search</button>
+        </div>
+
+        <div id="search-results" class="search-results">
+            <!-- Results will be populated by JavaScript -->
+        </div>
+
+        <div id="search-loading" class="search-loading" style="display: none;">
+            Searching...
+        </div>
+
+        <div id="search-no-results" class="search-no-results" style="display: none;">
+            No results found. Try different keywords.
+        </div>
+    </div>
+</div>
+
+<script>
+// Search index will be loaded from the JSON output
+let searchIndex = null;
+
+// Load search index
+fetch('{{ "index.json" | absURL }}')
+    .then(response => response.json())
+    .then(data => {
+        searchIndex = data;
+    });
+
+// Search functionality
+document.getElementById('search-button').addEventListener('click', performSearch);
+document.getElementById('search-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        performSearch();
+    }
+});
+
+function performSearch() {
+    const query = document.getElementById('search-input').value.toLowerCase();
+    const resultsContainer = document.getElementById('search-results');
+    const noResultsContainer = document.getElementById('search-no-results');
+    const loadingContainer = document.getElementById('search-loading');
+
+    if (!query) {
+        resultsContainer.innerHTML = '';
+        noResultsContainer.style.display = 'none';
+        return;
+    }
+
+    if (!searchIndex) {
+        loadingContainer.style.display = 'block';
+        setTimeout(performSearch, 500);
+        return;
+    }
+
+    loadingContainer.style.display = 'none';
+
+    const results = searchIndex.filter(item => {
+        return item.title.toLowerCase().includes(query) ||
+               item.content.toLowerCase().includes(query) ||
+               (item.tags && item.tags.some(tag => tag.toLowerCase().includes(query)));
+    });
+
+    if (results.length === 0) {
+        resultsContainer.innerHTML = '';
+        noResultsContainer.style.display = 'block';
+    } else {
+        noResultsContainer.style.display = 'none';
+        displayResults(results);
+    }
+}
+
+function displayResults(results) {
+    const resultsContainer = document.getElementById('search-results');
+    let html = '<div class="results-list">';
+
+    results.forEach(result => {
+        html += `
+            <article class="result-item">
+                <h3 class="result-title">
+                    <a href="${result.permalink}">${result.title}</a>
+                </h3>
+                <p class="result-summary">${result.summary}</p>
+                <div class="result-meta">
+                    <span class="result-section">${result.section}</span>
+                    <time class="result-date">${result.date}</time>
+                </div>
+            </article>
+        `;
+    });
+
+    html += '</div>';
+    resultsContainer.innerHTML = html;
+}
+</script>
+{{ end }}

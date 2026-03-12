@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div class="section-layout">
+    <div class="container-with-sidebar">
+        {{ partial "sidebar.html" . }}
+
+        <div class="content-area">
+            <div class="content-header">
+                <h1 class="page-title">{{ .Title }}</h1>
+                {{ if .Description }}
+                <p class="page-description">{{ .Description }}</p>
+                {{ end }}
+            </div>
+
+            <div class="section-content">
+                {{ if .Content }}
+                <div class="section-overview">
+                    {{ .Content }}
+                </div>
+                {{ end }}
+
+                <div class="section-pages">
+                    <h2 class="section-subtitle">Topics in {{ .Title }}</h2>
+                    <div class="page-cards">
+                        {{ range .Pages }}
+                        <article class="page-card">
+                            <h3 class="page-card-title">
+                                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                            </h3>
+                            {{ if .Description }}
+                            <p class="page-card-description">{{ .Description }}</p>
+                            {{ else if .Summary }}
+                            <p class="page-card-description">{{ .Summary | truncate 150 }}</p>
+                            {{ end }}
+                            <div class="page-card-meta">
+                                <time class="page-date">{{ .Date.Format "Jan 2, 2006" }}</time>
+                                {{ if .Params.author }}
+                                <span class="page-author">by {{ .Params.author }}</span>
+                                {{ end }}
+                            </div>
+                        </article>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,51 @@
+<aside class="sidebar">
+    <div class="sidebar-content">
+        <!-- Section Title -->
+        <h2 class="sidebar-title">{{ .Section | humanize }}</h2>
+
+        <!-- Navigation List -->
+        <nav class="sidebar-nav">
+            <ul class="sidebar-list">
+                {{ $currentPage := . }}
+                {{ range where .Site.RegularPages "Section" .Section }}
+                <li class="sidebar-item">
+                    <a href="{{ .Permalink }}" class="sidebar-link {{ if eq $currentPage.Permalink .Permalink }}active{{ end }}">
+                        {{ .Title }}
+                    </a>
+
+                    <!-- Table of Contents for active page -->
+                    {{ if eq $currentPage.Permalink .Permalink }}
+                        {{ if .TableOfContents }}
+                        <div class="toc-wrapper">
+                            <h3 class="toc-title">On this page</h3>
+                            {{ .TableOfContents }}
+                        </div>
+                        {{ end }}
+                    {{ end }}
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+
+        <!-- Additional Resources -->
+        {{ if .Params.resources }}
+        <div class="sidebar-resources">
+            <h3 class="resources-title">Resources</h3>
+            <ul class="resources-list">
+                {{ range .Params.resources }}
+                <li class="resource-item">
+                    <a href="{{ .url }}" class="resource-link" {{ if .external }}target="_blank" rel="noopener"{{ end }}>
+                        {{ .title }}
+                        {{ if .external }}
+                        <svg class="external-icon" width="12" height="12" viewBox="0 0 12 12">
+                            <path d="M9 3v6h-6v-6h6m0-2h-6c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2v-6c0-1.1-.9-2-2-2z"/>
+                        </svg>
+                        {{ end }}
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+        {{ end }}
+    </div>
+</aside>

@@ -1,0 +1,12 @@
+name = "SF Ohana Theme"
+license = "MIT"
+licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
+description = "A modern documentation theme for Salesforce knowledge base"
+homepage = "https://github.com/yourname/yourtheme"
+tags = ["documentation", "knowledge-base", "responsive", "search"]
+features = ["responsive", "search", "syntax-highlighting", "mobile-friendly"]
+min_version = "0.120.0"
+
+[author]
+  name = "Your Name"
+  homepage = "https://yoursite.com"

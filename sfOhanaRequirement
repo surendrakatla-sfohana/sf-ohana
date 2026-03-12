@@ -1,0 +1,275 @@
+You are an expert static site architect specializing in Hugo and GitHub Pages.
+
+I want you to generate a complete Hugo website for a Salesforce knowledge base.
+
+The website name is:
+
+SF Ohana
+
+The goal of the website is to document Salesforce knowledge daily, similar to a technical knowledge base / developer handbook.
+
+I will host this site on GitHub Pages and maintain it by adding markdown files daily.
+
+You must generate:
+
+• Complete Hugo project structure
+• Custom theme
+• Layout templates
+• CSS styling
+• Navigation logic
+• Content structure
+• Instructions for GitHub Pages deployment
+
+The output should be production ready.
+
+Website Concept
+
+This is a Salesforce technical knowledge base where each major topic has its own page.
+
+Example topics:
+
+Apex
+
+LWC
+
+Certificates
+
+Platform Events
+
+Integrations
+
+Agentforce
+
+Data Cloud
+
+Users should be able to:
+
+• Choose a topic from the homepage
+• Navigate to that topic page
+• Browse subtopics in the left sidebar
+• Read detailed documentation in the main content area
+
+Homepage Layout
+
+The homepage should contain:
+
+Header
+
+Left side:
+
+SF Ohana
+
+Right side navigation:
+
+Home | Search | About
+
+Search should use Hugo client-side search (Lunr.js or Fuse.js).
+
+Section 1 — Topic Selection
+
+Below the header there should be a section titled:
+
+Pick One
+
+Display large clickable cards/buttons for each topic:
+
+Apex
+LWC
+Certificates
+Platform Events
+Integrations
+Agentforce
+Data Cloud
+
+Each card navigates to its own separate page.
+
+Topic Page Layout
+
+Each topic page should follow this structure:
+
+Header (same as homepage)
+SF Ohana | Home | Search | About
+Two Column Layout
+
+LEFT COLUMN (Navigation Sidebar)
+
+Contains topic sections.
+
+Example for Apex:
+
+Apex
+  - Synchronous
+  - Asynchronous
+  - Issues
+  - Usage
+
+Clicking each item loads the relevant content.
+
+RIGHT COLUMN (Main Content)
+
+Displays documentation.
+
+Example:
+
+Title: Synchronous Apex
+
+Explanation
+Code examples
+Best practices
+Common issues
+
+Content Organization
+
+Use this Hugo content structure:
+
+content/
+   apex/
+       synchronous.md
+       asynchronous.md
+       issues.md
+       usage.md
+
+   lwc/
+       basics.md
+       lifecycle.md
+       communication.md
+
+   certificates/
+   platform-events/
+   integrations/
+   agentforce/
+   data-cloud/
+
+Each markdown file should support:
+
+Title
+Description
+Code blocks
+Notes
+Examples
+Visual Style
+
+Design requirements:
+
+Clean technical documentation style.
+
+Use:
+
+• soft Salesforce-inspired colors
+• modern card layout
+• readable typography
+• sticky sidebar navigation
+• responsive design
+
+Homepage topic cards should look like modern dev portal cards.
+
+Example design inspiration:
+
+Salesforce Developer Docs
+Stripe Docs
+Vercel Docs
+
+Features Required
+1. Fast Navigation
+
+Sidebar links should load pages quickly.
+
+2. Sticky Sidebar
+
+Left navigation remains visible when scrolling.
+
+3. Search
+
+Search should index all content markdown files.
+
+4. Mobile Friendly
+
+Sidebar collapses into a hamburger menu.
+
+5. Syntax Highlighting
+
+Support for:
+
+Apex
+JavaScript
+JSON
+SOQL
+6. Table of Contents
+
+Automatically generated for long pages.
+
+Hugo Theme Requirements
+
+Create a custom theme called:
+
+sf-ohana-theme
+
+Theme should include:
+
+layouts/
+partials/
+shortcodes/
+assets/css/
+assets/js/
+
+Include:
+
+header.html
+sidebar.html
+footer.html
+search.html
+Homepage Example
+
+Homepage should visually look like:
+
+---------------------------------------
+SF Ohana        Home | Search | About
+---------------------------------------
+
+Pick One
+
+[Apex] [LWC] [Certificates]
+
+[Platform Events] [Integrations]
+
+[Agentforce] [Data Cloud]
+Topic Page Example
+---------------------------------------
+SF Ohana        Home | Search | About
+---------------------------------------
+
+| Sidebar (Topics) | Main Content |
+|------------------|--------------|
+| Apex             | Synchronous  |
+| - Synchronous    | explanation  |
+| - Asynchronous   | code         |
+| - Issues         | examples     |
+| - Usage          | notes        |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

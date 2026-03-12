@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ "css/main.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "css/syntax.css" | absURL }}">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ "images/favicon.png" | absURL }}">
+</head>
+<body>
+    <div class="site-wrapper">
+        {{ partial "header.html" . }}
+
+        <main class="main-content">
+            {{ block "main" . }}{{ end }}
+        </main>
+
+        {{ partial "footer.html" . }}
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ "js/search.js" | absURL }}"></script>
+    <script src="{{ "js/navigation.js" | absURL }}"></script>
+    <script src="{{ "js/main.js" | absURL }}"></script>
+</body>
+</html>

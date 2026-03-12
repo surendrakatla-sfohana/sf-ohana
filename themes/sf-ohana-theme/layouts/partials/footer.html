@@ -1,0 +1,32 @@
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">SF Ohana</h3>
+                <p class="footer-description">Your comprehensive Salesforce knowledge base and technical documentation hub.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Quick Links</h4>
+                <ul class="footer-links">
+                    {{ range .Site.Params.topics }}
+                    <li><a href="{{ .url }}">{{ .name }}</a></li>
+                    {{ end }}
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="https://developer.salesforce.com" target="_blank" rel="noopener">Salesforce Developer</a></li>
+                    <li><a href="https://trailhead.salesforce.com" target="_blank" rel="noopener">Trailhead</a></li>
+                    <li><a href="{{ .Site.Params.githubRepo }}" target="_blank" rel="noopener">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">© {{ now.Year }} SF Ohana. Built with Hugo.</p>
+        </div>
+    </div>
+</footer>
