@@ -89,7 +89,7 @@ function displayResults(results) {
                 <p class="result-summary">${result.summary}</p>
                 <div class="result-meta">
                     <span class="result-section">${result.section}</span>
-                    <time class="result-date">${result.date}</time>
+                    ${result.date ? `<time class="result-date">Updated: ${formatDate(result.date)}</time>` : ''}
                 </div>
             </article>
         `;
@@ -97,6 +97,13 @@ function displayResults(results) {
 
     html += '</div>';
     resultsContainer.innerHTML = html;
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    if (Number.isNaN(date.getTime())) return dateString;
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
 }
 </script>
 {{ end }}
