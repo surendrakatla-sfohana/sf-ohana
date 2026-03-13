@@ -81,18 +81,18 @@ function displayResults(results) {
     let html = '<div class="results-list">';
 
     results.forEach(result => {
-        html += `
-            <article class="result-item">
-                <h3 class="result-title">
-                    <a href="${result.permalink}">${result.title}</a>
-                </h3>
-                <p class="result-summary">${result.summary}</p>
-                <div class="result-meta">
-                    <span class="result-section">${result.section}</span>
-                    ${result.date ? `<time class="result-date">Updated: ${formatDate(result.date)}</time>` : ''}
-                </div>
-            </article>
-        `;
+        html += '<article class="result-item">';
+        html += '<h3 class="result-title">';
+        html += '<a href="' + result.permalink + '">' + result.title + '</a>';
+        html += '</h3>';
+        html += '<p class="result-summary">' + result.summary + '</p>';
+        html += '<div class="result-meta">';
+        html += '<span class="result-section">' + result.section + '</span>';
+        if (result.date) {
+            html += '<time class="result-date">Updated: ' + formatDate(result.date) + '</time>';
+        }
+        html += '</div>';
+        html += '</article>';
     });
 
     html += '</div>';
