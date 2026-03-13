@@ -26,42 +26,49 @@ pygmentsUseClasses = true
     url = "/apex/"
     icon = "code"
     description = "Salesforce Apex Programming"
+    # image = "/images/apex.png"  # Add your image path here
 
   [[params.topics]]
     name = "LWC"
     url = "/lwc/"
     icon = "component"
     description = "Lightning Web Components"
+    # image = "/images/lwc.png"  # Add your image path here
 
   [[params.topics]]
     name = "Certificates"
     url = "/certificates/"
     icon = "certificate"
     description = "Salesforce Certifications"
+    # image = "/images/certificates.png"  # Add your image path here
 
   [[params.topics]]
     name = "Platform Events"
     url = "/platform-events/"
     icon = "event"
     description = "Event-Driven Architecture"
+    # image = "/images/platform-events.png"  # Add your image path here
 
   [[params.topics]]
     name = "Integrations"
     url = "/integrations/"
     icon = "integration"
     description = "System Integrations"
+    # image = "/images/integrations.png"  # Add your image path here
 
   [[params.topics]]
     name = "Agentforce"
     url = "/agentforce/"
     icon = "agent"
     description = "Salesforce Agentforce"
+    # image = "/images/agentforce.png"  # Add your image path here
 
   [[params.topics]]
     name = "Data Cloud"
     url = "/data-cloud/"
     icon = "cloud"
     description = "Salesforce Data Cloud"
+    # image = "/images/datacloud.png"  # Add your image path here
 
 [menu]
   [[menu.main]]
