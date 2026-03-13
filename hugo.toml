@@ -1,4 +1,4 @@
-baseURL = "https://yourusername.github.io/sf-ohana/"
+baseURL = "https://surendrakatla-sfohana.github.io/sf-ohana/"
 languageCode = "en-us"
 title = "SF Ohana"
 theme = "sf-ohana-theme"
@@ -18,7 +18,7 @@ pygmentsUseClasses = true
   searchEnabled = true
 
   # GitHub repository for edit links
-  githubRepo = "https://github.com/yourusername/sf-ohana"
+  githubRepo = "https://github.com/surendrakatla-sfohana/sf-ohana"
 
   # Topics configuration
   [[params.topics]]
