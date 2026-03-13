@@ -24,7 +24,7 @@ To provide clear, practical, and up-to-date Salesforce technical documentation t
 
 ## Contributing
 
-This knowledge base is maintained daily with new content and updates. If you'd like to contribute or suggest topics, please visit our [GitHub repository](https://github.com/surendrakatla-sf-ohana/sf-ohana).
+This knowledge base is maintained daily with new content and updates. If you'd like to contribute or suggest topics, please visit our [GitHub repository](https://github.com/surendrakatla-sfohana/sf-ohana).
 
 ## Stay Updated
 
