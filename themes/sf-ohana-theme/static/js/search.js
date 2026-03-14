@@ -16,29 +16,48 @@
         let searchIndex = null;
         let fuse = null;
 
-        // Fetch the search index
-        fetch('/index.json')
-            .then(response => response.json())
-            .then(data => {
-                searchIndex = data;
-                // Initialize Fuse.js for fuzzy search
-                fuse = new Fuse(searchIndex, {
-                    keys: [
-                        { name: 'title', weight: 0.8 },
-                        { name: 'content', weight: 0.5 },
-                        { name: 'tags', weight: 0.3 },
-                        { name: 'categories', weight: 0.3 }
-                    ],
-                    includeScore: true,
-                    threshold: 0.3,
-                    location: 0,
-                    distance: 100,
-                    minMatchCharLength: 2
-                });
-            })
-            .catch(error => {
-                console.error('Error loading search index:', error);
+        // Use embedded search index data if available, otherwise fetch
+        if (window.searchIndexData) {
+            searchIndex = window.searchIndexData;
+            // Initialize Fuse.js for fuzzy search
+            fuse = new Fuse(searchIndex, {
+                keys: [
+                    { name: 'title', weight: 0.8 },
+                    { name: 'content', weight: 0.5 },
+                    { name: 'tags', weight: 0.3 },
+                    { name: 'categories', weight: 0.3 }
+                ],
+                includeScore: true,
+                threshold: 0.3,
+                location: 0,
+                distance: 100,
+                minMatchCharLength: 2
             });
+        } else {
+            // Fallback to fetching index.json
+            fetch('/sf-ohana/index.json')
+                .then(response => response.json())
+                .then(data => {
+                    searchIndex = data;
+                    // Initialize Fuse.js for fuzzy search
+                    fuse = new Fuse(searchIndex, {
+                        keys: [
+                            { name: 'title', weight: 0.8 },
+                            { name: 'content', weight: 0.5 },
+                            { name: 'tags', weight: 0.3 },
+                            { name: 'categories', weight: 0.3 }
+                        ],
+                        includeScore: true,
+                        threshold: 0.3,
+                        location: 0,
+                        distance: 100,
+                        minMatchCharLength: 2
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading search index:', error);
+                });
+        }
 
         // Search event handlers
         if (searchButton) {

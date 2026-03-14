@@ -1,4 +1,5 @@
-baseURL = "https://surendrakatla-sfohana.github.io/sf-ohana/"
+prodbaseURL = "https://surendrakatla-sfohana.github.io/sf-ohana/"
+baseURL = "http://localhost:1313/sf-ohana/"
 languageCode = "en-us"
 title = "SF Ohana"
 theme = "sf-ohana-theme"

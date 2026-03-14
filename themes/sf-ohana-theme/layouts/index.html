@@ -14,7 +14,7 @@
             <h2 class="section-title">Pick One</h2>
             <div class="topic-grid">
                 {{ range .Site.Params.topics }}
-                <a href="{{ .url | relURL }}" class="topic-card">
+                <a href="{{ .url }}" class="topic-card">
                     <div class="topic-card-image">
                         {{ if .image }}
                         <img src="{{ .image | relURL }}" alt="{{ .name }}" width="80" height="80">
