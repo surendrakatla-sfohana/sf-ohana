@@ -61,6 +61,20 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
 
+      - name: Verify search index
+        run: |
+          echo "Checking if index.json was generated..."
+          if [ -f ./public/index.json ]; then
+            echo "✓ index.json found"
+            echo "File size: $(wc -c < ./public/index.json) bytes"
+            echo "First 500 characters:"
+            head -c 500 ./public/index.json
+          else
+            echo "✗ index.json not found"
+            echo "Contents of public directory:"
+            ls -la ./public/
+          fi
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

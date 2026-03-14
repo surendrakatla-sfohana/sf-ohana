@@ -1,7 +1,7 @@
 <header class="site-header">
     <div class="header-container">
         <div class="header-left">
-            <a href="{{ "/" | relLangURL }}" class="site-logo">
+            <a href="{{ "/" | relURL }}" class="site-logo">
                 <span class="logo-text">SF Ohana</span>
             </a>
         </div>
@@ -10,7 +10,7 @@
             <ul class="nav-list">
                 {{ range .Site.Menus.main }}
                 <li class="nav-item">
-                    <a href="{{ .URL | relLangURL }}" class="nav-link {{ if $.IsMenuCurrent "main" . }}active{{ end }}">
+                    <a href="{{ .URL | relURL }}" class="nav-link {{ if $.IsMenuCurrent "main" . }}active{{ end }}">
                         {{ .Name }}
                     </a>
                 </li>
@@ -31,7 +31,7 @@
         <ul class="mobile-nav-list">
             {{ range .Site.Menus.main }}
             <li class="mobile-nav-item">
-                <a href="{{ .URL | relLangURL }}" class="mobile-nav-link">{{ .Name }}</a>
+                <a href="{{ .URL | relURL }}" class="mobile-nav-link">{{ .Name }}</a>
             </li>
             {{ end }}
         </ul>

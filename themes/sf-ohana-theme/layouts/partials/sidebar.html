@@ -9,7 +9,7 @@
                 {{ $currentPage := . }}
                 {{ range where .Site.RegularPages "Section" .Section }}
                 <li class="sidebar-item">
-                    <a href="{{ .Permalink }}" class="sidebar-link {{ if eq $currentPage.Permalink .Permalink }}active{{ end }}">
+                    <a href="{{ .RelPermalink }}" class="sidebar-link {{ if eq $currentPage.RelPermalink .RelPermalink }}active{{ end }}">
                         {{ .Title }}
                     </a>
 

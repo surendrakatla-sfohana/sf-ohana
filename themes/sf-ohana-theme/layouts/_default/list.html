@@ -1,0 +1,46 @@
+{{ define "main" }}
+<div class="section-page">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">{{ .Title }}</h1>
+            {{ with .Content }}
+            <div class="section-description">
+                {{ . }}
+            </div>
+            {{ end }}
+        </div>
+
+        <div class="articles-grid">
+            {{ range .Pages }}
+            <article class="article-card">
+                <h2 class="article-title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h2>
+                {{ with .Summary }}
+                <p class="article-summary">{{ . | truncate 150 }}</p>
+                {{ end }}
+                <div class="article-meta">
+                    {{ if .Date }}
+                    <time class="article-date">{{ .Date.Format "Jan 2, 2006" }}</time>
+                    {{ end }}
+                    {{ with .Params.tags }}
+                    <div class="article-tags">
+                        {{ range . }}
+                        <span class="tag">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+            </article>
+            {{ end }}
+        </div>
+
+        {{ if not .Pages }}
+        <div class="empty-state">
+            <p>No articles in this section yet.</p>
+            <p>Check back soon for updates!</p>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

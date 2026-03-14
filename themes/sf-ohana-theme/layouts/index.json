@@ -1,0 +1,22 @@
+{{- $regularPages := where .Site.RegularPages "Type" "ne" "page" -}}
+{{- $sectionPages := where .Site.Pages "Kind" "section" -}}
+{{- $pages := sort (union $regularPages $sectionPages) "Lastmod" "desc" -}}
+[
+{{- range $index, $page := $pages -}}
+  {{- $updated := $page.Lastmod -}}
+  {{- if or (not $updated) (eq $updated.Unix 0) -}}
+    {{- $updated = $page.Date -}}
+  {{- end -}}
+  {{- if $index -}},{{- end }}
+  {
+    "title": {{ $page.Title | jsonify }},
+    "permalink": {{ $page.Permalink | jsonify }},
+    "summary": {{ $page.Summary | plainify | jsonify }},
+    "content": {{ $page.Plain | jsonify }},
+    "section": {{ $page.Section | jsonify }},
+    "date": {{ $updated.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+    "tags": {{ $page.Params.tags | jsonify }},
+    "categories": {{ $page.Params.categories | jsonify }}
+  }
+{{- end -}}
+]
